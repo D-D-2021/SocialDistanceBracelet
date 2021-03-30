@@ -1,9 +1,11 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const cron = require('node-cron');
 
 const userRoute = require('./routes/userRoutes');
 const braceletRoute = require('./routes/braceletRoutes');
+const positionRoute = require('./routes/positionRoutes');
 
 require('dotenv').config();
 
@@ -29,5 +31,10 @@ app.use(cors());
 
 app.use('/user', userRoute);
 app.use('/bracelet', braceletRoute);
+app.use('/position', positionRoute);
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
+
+cron.schedule('* * * * *', () => {
+    // Will be used to determine positions
+});

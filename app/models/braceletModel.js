@@ -7,6 +7,10 @@ const BraceletSchema = new Schema({
         type: Number,
         required: true,
     },
+    macAddress: {
+        type: String,
+        required: true,
+    },
     usage: [{
         user: mongoose.Schema.Types.ObjectId,
         timeStart: {
