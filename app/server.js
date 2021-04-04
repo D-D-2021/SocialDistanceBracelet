@@ -8,6 +8,7 @@ const positionRoute = require('./routes/positionRoutes');
 const app = express();
 
 app.use(cors());
+app.use(express.json());
 
 app.use('/user', userRoute);
 app.use('/bracelet', braceletRoute);
