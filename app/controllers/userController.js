@@ -13,3 +13,10 @@ exports.createUser = async (req, res) => {
         res.status(400).send(err);
     }
 };
+
+exports.getUserList = async (req, res) => {
+    await User.find({}, (err, userList) => {
+        if (err) throw err;
+        else res.send(userList);
+    });
+};
