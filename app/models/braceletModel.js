@@ -23,6 +23,4 @@ const BraceletSchema = new Schema({
     }],
 });
 
-module.exports = {
-    User: mongoose.model('Bracelet', BraceletSchema),
-};
+module.exports = mongoose.model('Bracelet', BraceletSchema);

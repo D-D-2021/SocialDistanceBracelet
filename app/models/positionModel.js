@@ -11,7 +11,7 @@ const PositionSchema = new Schema({
         type: String,
         required: true,
     },
-    braceletMAC: {
+    braceletmac: {
         type: String,
         required: true,
     },
@@ -21,6 +21,4 @@ const PositionSchema = new Schema({
     },
 });
 
-module.exports = {
-    User: mongoose.model('Position', PositionSchema),
-};
+module.exports = mongoose.model('Position', PositionSchema);

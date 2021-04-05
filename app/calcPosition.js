@@ -1,3 +1,6 @@
+const Position = require('./models/positionModel');
+const Location = require('./models/locationModel');
+
 // Define beacons - would use db if more
 const beacons = {
     b1: {
@@ -26,9 +29,9 @@ const calcPos = (distances) => {
     const r1 = distances[0].distance;
     const r2 = distances[1].distance;
     const r3 = distances[2].distance;
-    const { x: x1, y: y1 } = beacons[distances[0].beacon]; // Closest
+    const { x: x1, y: y1 } = beacons[distances[0].beacon];
     const { x: x2, y: y2 } = beacons[distances[1].beacon];
-    const { x: x3, y: y3 } = beacons[distances[2].beacon]; // Farthest
+    const { x: x3, y: y3 } = beacons[distances[2].beacon];
 
     // https://www.101computing.net/cell-phone-trilateration-algorithm/
     const A = 2 * x2 - 2 * x1;
@@ -60,3 +63,36 @@ const calcPos = (distances) => {
 // ];
 
 // console.log(calcPos(testCase));
+
+const groupBy = (items, key) => items.reduce(
+    (acc, item) => ({
+        ...acc,
+        [item[key]]: [
+            ...(acc[item[key]] || []),
+            item,
+        ],
+    }),
+    {},
+);
+
+const calcNewLocations = async () => {
+    const currTime = new Date();
+    // Get beacon data for last time period (15 seconds)
+    const timeLimit = new Date(currTime.getTime() - (15 * 1000)); // 15 seconds before
+    const newPositions = await Position.find(
+        {
+            time: {
+                $gte: timeLimit,
+            },
+        },
+    );
+    // Assume three positions for each
+    const groupedPositions = groupBy(newPositions, 'braceletmac');
+    const locations = [];
+    Object.keys(groupedPositions).forEach((bracelet) => {
+        locations.push({ bracelet: calcPos(groupedPositions[bracelet]) });
+    });
+    return locations;
+};
+
+module.exports = calcNewLocations;
