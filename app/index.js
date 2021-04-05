@@ -23,10 +23,10 @@ const connectDB = async () => {
 
 connectDB();
 
-cron.schedule('* * * * *', () => {
+cron.schedule('*/15 * * * * *', () => { // Run every 15 seconds
     // Will be used to determine positions
+    console.log('Saving locations');
+    calcNewLocations();
 });
-
-calcNewLocations();
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
