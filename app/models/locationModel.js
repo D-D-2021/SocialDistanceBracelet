@@ -21,6 +21,4 @@ const LocationSchema = new Schema({
     },
 });
 
-module.exports = {
-    User: mongoose.model('Location', LocationSchema),
-};
+module.exports = mongoose.model('Location', LocationSchema);

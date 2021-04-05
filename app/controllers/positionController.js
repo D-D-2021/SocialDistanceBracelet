@@ -1,10 +1,11 @@
-const { Position } = require('../models/positionModel');
+const Position = require('../models/positionModel');
 
 exports.savePosition = async (req, res) => {
     const position = new Position({
         time: new Date(),
         beacon: req.body.beacon,
-        braceletMac: req.body.braceletMAC,
+        braceletmac: req.body.braceletmac,
+        distance: req.body.distance,
     });
     try {
         const savedPosition = await position.save();
