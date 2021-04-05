@@ -16,7 +16,7 @@ exports.savePosition = async (req, res) => {
 };
 
 exports.saveMultiple = async (req, res) => {
-    req.body.forEach(async (pos) => {
+    req.body.positions.forEach(async (pos) => {
         const position = new Position({
             time: new Date(),
             beacon: pos.beacon,
@@ -24,10 +24,10 @@ exports.saveMultiple = async (req, res) => {
             distance: pos.distance,
         });
         try {
-            const savedPosition = await position.save();
-            res.send(savedPosition);
+            await position.save();
         } catch (err) {
             res.status(400).send(err);
         }
     });
+    res.status(200).send('Received Positions');
 };
