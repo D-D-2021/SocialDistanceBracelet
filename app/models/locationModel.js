@@ -2,25 +2,25 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const PositionSchema = new Schema({
+const LocationSchema = new Schema({
     time: {
         type: Date,
         required: true,
     },
-    beacon: {
-        type: String,
+    bracelet: {
+        type: Number,
         required: true,
     },
-    braceletMAC: {
-        type: String,
+    x: {
+        type: Number,
         required: true,
     },
-    distance: {
+    y: {
         type: Number,
         required: true,
     },
 });
 
 module.exports = {
-    User: mongoose.model('Position', PositionSchema),
+    User: mongoose.model('Location', LocationSchema),
 };
