@@ -79,7 +79,7 @@ const groupBy = (items, key) => items.reduce(
 const calcNewLocations = async () => {
     const currTime = new Date();
     // Get beacon data for last time period (15 seconds)
-    const timeLimit = new Date(currTime.getTime() - (150000 * 1000)); // 15 seconds before
+    const timeLimit = new Date(currTime.getTime() - (15 * 1000)); // 15 seconds before
     const newPositions = await Position.find(
         { time: { $gte: timeLimit } },
     );
@@ -97,7 +97,18 @@ const calcNewLocations = async () => {
         );
         return { [braceletId[0].id]: location[macaddress] };
     }));
-    return matchedLocations;
+    // Save locations to database
+    matchedLocations.forEach(async (location) => {
+        const braceletId = Object.keys(location)[0];
+        const locationEntry = new Location({
+            time: new Date(),
+            bracelet: braceletId,
+            x: location[braceletId].x,
+            y: location[braceletId].y,
+        });
+        await locationEntry.save();
+        return 1;
+    });
 };
 
 module.exports = calcNewLocations;
