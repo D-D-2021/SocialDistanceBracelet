@@ -1,5 +1,6 @@
 const Position = require('./models/positionModel');
 const Location = require('./models/locationModel');
+const Bracelet = require('./models/braceletModel');
 
 // Define beacons - would use db if more
 const beacons = {
@@ -78,21 +79,25 @@ const groupBy = (items, key) => items.reduce(
 const calcNewLocations = async () => {
     const currTime = new Date();
     // Get beacon data for last time period (15 seconds)
-    const timeLimit = new Date(currTime.getTime() - (15 * 1000)); // 15 seconds before
+    const timeLimit = new Date(currTime.getTime() - (150000 * 1000)); // 15 seconds before
     const newPositions = await Position.find(
-        {
-            time: {
-                $gte: timeLimit,
-            },
-        },
+        { time: { $gte: timeLimit } },
     );
     // Assume three positions for each
     const groupedPositions = groupBy(newPositions, 'braceletmac');
     const locations = [];
     Object.keys(groupedPositions).forEach((bracelet) => {
-        locations.push({ bracelet: calcPos(groupedPositions[bracelet]) });
+        locations.push({ [bracelet]: calcPos(groupedPositions[bracelet]) });
     });
-    return locations;
+    // Find matching bracelet id
+    const matchedLocations = await Promise.all(locations.map(async (location) => {
+        const macaddress = Object.keys(location)[0];
+        const braceletId = await Bracelet.find(
+            { macAddress: Object.keys(location)[0] },
+        );
+        return { [braceletId[0].id]: location[macaddress] };
+    }));
+    return matchedLocations;
 };
 
 module.exports = calcNewLocations;

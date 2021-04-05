@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const cron = require('node-cron');
+const calcNewLocations = require('./calcPosition');
 
 const app = require('./server');
 
@@ -25,5 +26,7 @@ connectDB();
 cron.schedule('* * * * *', () => {
     // Will be used to determine positions
 });
+
+calcNewLocations();
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
