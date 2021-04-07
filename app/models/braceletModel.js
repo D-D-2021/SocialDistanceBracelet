@@ -12,7 +12,7 @@ const BraceletSchema = new Schema({
         required: true,
     },
     usage: [{
-        user: mongoose.Schema.Types.ObjectId,
+        user: String,
         timeStart: {
             type: Date,
             required: true,
