@@ -10,4 +10,6 @@ router.put('/checkout', braceletController.checkoutBracelet);
 
 router.put('/checkin', braceletController.checkinBracelet);
 
+router.get('/braceletlist', braceletController.getBraceletList);
+
 module.exports = router;

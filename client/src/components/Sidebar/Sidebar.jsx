@@ -14,6 +14,9 @@ const Sidebar = () => {
                 <Nav.Item>
                     <Nav.Link as={Link} to="/userlist">User List</Nav.Link>
                 </Nav.Item>
+                <Nav.Item>
+                    <Nav.Link as={Link} to="/braceletlist">Bracelet List</Nav.Link>
+                </Nav.Item>
             </Nav>
         </div>
     );
