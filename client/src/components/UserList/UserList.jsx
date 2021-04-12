@@ -16,7 +16,7 @@ const UserList = () => {
 
     useEffect(() => {
         getUserList();
-    });
+    }, []);
 
     return (
         <div>

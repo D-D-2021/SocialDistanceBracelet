@@ -58,3 +58,10 @@ exports.checkinBracelet = async (req, res) => {
         res.status(400).send(err);
     }
 };
+
+exports.getBraceletList = async (req, res) => {
+    await Bracelet.find({}, (err, braceletList) => {
+        if (err) throw err;
+        else res.send(braceletList);
+    });
+};
