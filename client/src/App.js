@@ -5,6 +5,7 @@ import {
 import UserList from './components/UserList/UserList';
 import BraceletList from './components/BraceletList/BraceletList';
 import CreateUser from './components/CreateUser/CreateUser';
+import LocationMap from './components/LocationMap/LocationMap';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -23,6 +24,9 @@ function App() {
                             </Route>
                             <Route path="/braceletlist">
                                 <BraceletList />
+                            </Route>
+                            <Route path="/locationmap">
+                                <LocationMap />
                             </Route>
                         </Switch>
                     </div>
