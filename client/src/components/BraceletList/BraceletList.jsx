@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Table from 'react-bootstrap/Table';
 import Container from 'react-bootstrap/Container';
 import Sidebar from '../Sidebar/Sidebar';
+import './BraceletList.css';
 
 const BraceletList = () => {
     const [braceletList, setBraceletList] = useState([]);

@@ -17,6 +17,9 @@ const Sidebar = () => {
                 <Nav.Item>
                     <Nav.Link as={Link} to="/braceletlist">Bracelet List</Nav.Link>
                 </Nav.Item>
+                <Nav.Item>
+                    <Nav.Link as={Link} to="/locationmap">Map</Nav.Link>
+                </Nav.Item>
             </Nav>
         </div>
     );
