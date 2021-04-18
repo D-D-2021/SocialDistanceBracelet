@@ -7,6 +7,7 @@ import {
     LabelSeries,
     MarkSeries,
     PolygonSeries,
+    HexbinSeries,
 } from 'react-vis';
 // import React, { useEffect, useState } from 'react';
 import React, { useState } from 'react';
@@ -17,9 +18,14 @@ import Sidebar from '../Sidebar/Sidebar';
 
 const LocationMap = () => {
     const [showObjects, setShowObjects] = useState(true);
+    const [showHeatmap, setShowHeatmap] = useState(false);
 
     const toggleObjects = () => {
         setShowObjects(!showObjects);
+    };
+
+    const toggleHeatmap = () => {
+        setShowHeatmap(!showHeatmap);
     };
 
     const locations = [
@@ -38,6 +44,12 @@ const LocationMap = () => {
             y: -30,
             label: '3',
         },
+    ];
+
+    const heatmapData = [
+        { x: -10, y: 30 },
+        { x: 10, y: 20 },
+        { x: -40, y: -30 },
     ];
 
     const storeBorders = [
@@ -162,11 +174,25 @@ const LocationMap = () => {
                                 />
                             ))
                         )}
+                        {showHeatmap && (
+                            <HexbinSeries
+                                animation
+                                data={heatmapData}
+                                style={{
+                                    opacity: 0.8,
+                                }}
+                            />
+                        )}
                     </XYPlot>
                     <Button
                         onClick={toggleObjects}
                     >
                         Toggle Store Layout
+                    </Button>
+                    <Button
+                        onClick={toggleHeatmap}
+                    >
+                        Toggle Heatmap
                     </Button>
                 </Container>
             </div>

@@ -35,7 +35,6 @@ const CreateUser = () => {
             phone,
         };
         sendUserRegistration(formData);
-        console.log('Sent user registration');
     };
 
     return (
