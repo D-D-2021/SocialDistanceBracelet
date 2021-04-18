@@ -9,12 +9,19 @@ import {
     PolygonSeries,
 } from 'react-vis';
 // import React, { useEffect, useState } from 'react';
-import React from 'react';
+import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
+import Button from 'react-bootstrap/Button';
 import './LocationMap.css';
 import Sidebar from '../Sidebar/Sidebar';
 
 const LocationMap = () => {
+    const [showObjects, setShowObjects] = useState(true);
+
+    const toggleObjects = () => {
+        setShowObjects(!showObjects);
+    };
+
     const locations = [
         {
             x: -10,
@@ -38,6 +45,42 @@ const LocationMap = () => {
         { x: -50, y: 50 },
         { x: -50, y: -50 },
         { x: 50, y: -50 },
+    ];
+
+    const storeObjects = [
+        [
+            { x: -50, y: 40 },
+            { x: -45, y: 40 },
+            { x: -45, y: -40 },
+            { x: -50, y: -40 },
+        ],
+        [
+            { x: -40, y: 50 },
+            { x: 40, y: 50 },
+            { x: 40, y: 45 },
+            { x: -40, y: 45 },
+        ],
+    ];
+
+    const cashiers = [
+        [
+            { x: 10, y: -40 },
+            { x: 10, y: -25 },
+            { x: 15, y: -25 },
+            { x: 15, y: -40 },
+        ],
+        [
+            { x: 20, y: -40 },
+            { x: 20, y: -25 },
+            { x: 25, y: -25 },
+            { x: 25, y: -40 },
+        ],
+        [
+            { x: 30, y: -40 },
+            { x: 30, y: -25 },
+            { x: 35, y: -25 },
+            { x: 35, y: -40 },
+        ],
     ];
 
     // const [locations, setLocations] = useState([]);
@@ -91,7 +134,40 @@ const LocationMap = () => {
                                 opacity: 0.1,
                             }}
                         />
+                        {showObjects && (
+                            storeObjects.map((obj) => (
+                                <PolygonSeries
+                                    animation
+                                    data={obj}
+                                    color="blue"
+                                    style={{
+                                        strokeWidth: 0.5,
+                                        strokeOpacity: 1,
+                                        opacity: 0.7,
+                                    }}
+                                />
+                            ))
+                        )}
+                        {showObjects && (
+                            cashiers.map((obj) => (
+                                <PolygonSeries
+                                    animation
+                                    data={obj}
+                                    color="green"
+                                    style={{
+                                        strokeWidth: 0.5,
+                                        strokeOpacity: 1,
+                                        opacity: 0.7,
+                                    }}
+                                />
+                            ))
+                        )}
                     </XYPlot>
+                    <Button
+                        onClick={toggleObjects}
+                    >
+                        Toggle Store Layout
+                    </Button>
                 </Container>
             </div>
         </div>
