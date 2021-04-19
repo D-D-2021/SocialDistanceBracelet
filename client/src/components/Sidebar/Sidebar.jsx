@@ -13,6 +13,9 @@ const Sidebar = () => (
                 <Nav.Link as={Link} to="/userlist">User List</Nav.Link>
             </Nav.Item>
             <Nav.Item>
+                <Nav.Link as={Link} to="/podlist">Pod List</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
                 <Nav.Link as={Link} to="/braceletlist">Bracelet List</Nav.Link>
             </Nav.Item>
             <Nav.Item>

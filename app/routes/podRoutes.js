@@ -4,7 +4,7 @@ const router = express.Router();
 
 const podController = require('../controllers/podController');
 
-router.get('/', podController.getPods);
+router.get('/podlist', podController.getPods);
 
 router.put('/create', podController.createPod);
 
