@@ -6,6 +6,7 @@ import UserList from './components/UserList/UserList';
 import BraceletList from './components/BraceletList/BraceletList';
 import CreateUser from './components/CreateUser/CreateUser';
 import LocationMap from './components/LocationMap/LocationMap';
+import PodList from './components/PodList/PodList';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -27,6 +28,9 @@ function App() {
                             </Route>
                             <Route path="/locationmap">
                                 <LocationMap />
+                            </Route>
+                            <Route path="/podlist">
+                                <PodList />
                             </Route>
                         </Switch>
                     </div>
