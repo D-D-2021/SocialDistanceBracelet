@@ -42,6 +42,9 @@ const CreateUser = () => {
             <div className="splitcontent">
                 <Sidebar />
                 <Container className="container-createuser">
+                    <div className="titleheading">
+                        <h1>Register a User</h1>
+                    </div>
                     <Form onSubmit={handleSubmit}>
                         <Form.Row>
                             <Form.Group as={Col} md="4" controlId="username">
@@ -107,7 +110,7 @@ const CreateUser = () => {
                                 />
                             </Form.Group>
                         </Form.Row>
-                        <Button type="submit">Submit</Button>
+                        <Button bsPrefix="custom-button" type="submit">Submit</Button>
                     </Form>
                 </Container>
             </div>

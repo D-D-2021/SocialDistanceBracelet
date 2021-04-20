@@ -5,7 +5,7 @@ import './Sidebar.css';
 
 const Sidebar = () => (
     <div id="sidebar">
-        <Nav className="col-md-12 d-none d-md-block bg-light sidebar">
+        <Nav className="col-md-12 d-none d-md-block sidebar">
             <Nav.Item>
                 <Nav.Link as={Link} to="/register">Register User</Nav.Link>
             </Nav.Item>
