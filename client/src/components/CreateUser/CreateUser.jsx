@@ -98,6 +98,7 @@ const CreateUser = () => {
                                 <Form.Label>Address</Form.Label>
                                 <Form.Control
                                     type="text"
+                                    placeholder="Address"
                                     onChange={(e) => setAddress(e.target.value)}
                                 />
                             </Form.Group>

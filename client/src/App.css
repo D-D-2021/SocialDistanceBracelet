@@ -5,7 +5,8 @@
 }
 
 body {
-  background-color: #bee3db !important;
+  background-image: linear-gradient(#0F2027, #203A43, #2C5364);
+  background-color: #0F2027 !important;
 }
 
 #sidebar {
@@ -19,7 +20,7 @@ body {
 
 .titleheading {
   display: flex;
-  color: #555b6e;
+  color: #FAF9F9;
   padding: 5em;
 }
 
