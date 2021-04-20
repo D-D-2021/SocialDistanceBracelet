@@ -4,3 +4,7 @@
     flex-direction: column;
     font-size: 16px;
 }
+
+.form-label {
+    color: #FAF9F9;
+}

@@ -7,6 +7,7 @@ import BraceletList from './components/BraceletList/BraceletList';
 import CreateUser from './components/CreateUser/CreateUser';
 import LocationMap from './components/LocationMap/LocationMap';
 import PodList from './components/PodList/PodList';
+import Home from './components/Home/Home';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -17,6 +18,9 @@ function App() {
                 <div className="site-container">
                     <div className="site-content">
                         <Switch>
+                            <Route path="/register">
+                                <CreateUser />
+                            </Route>
                             <Route path="/register">
                                 <CreateUser />
                             </Route>
@@ -31,6 +35,9 @@ function App() {
                             </Route>
                             <Route path="/podlist">
                                 <PodList />
+                            </Route>
+                            <Route path="/">
+                                <Home />
                             </Route>
                         </Switch>
                     </div>
