@@ -23,6 +23,9 @@ const UserList = () => {
             <div className="splitcontent">
                 <Sidebar />
                 <Container className="container-userlist">
+                    <div className="titleheading">
+                        <h1>User List</h1>
+                    </div>
                     <Table striped bordered hover variant="dark" className="table-userlist">
                         <thead>
                             <tr>

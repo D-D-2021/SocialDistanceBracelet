@@ -23,6 +23,9 @@ const BraceletList = () => {
             <div className="splitcontent">
                 <Sidebar />
                 <Container className="container-braceletlist">
+                    <div className="titleheading">
+                        <h1>Bracelet List</h1>
+                    </div>
                     <Table striped bordered hover variant="dark" className="table-braceletlist">
                         <thead>
                             <tr>

@@ -8,3 +8,12 @@
 th {
     font-size: 20px;
 }
+
+.dropdown-select {
+    padding: 40px;
+}
+
+#dropdown-pod-select {
+    padding: 20px;
+    margin: 20px;
+}

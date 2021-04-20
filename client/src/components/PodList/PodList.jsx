@@ -29,24 +29,31 @@ const PodList = () => {
             <div className="splitcontent">
                 <Sidebar />
                 <Container className="container-podlist">
-                    <DropdownButton id="dropdown-pod-select" title="Choose a Pod">
-                        {podlist && (
-                            podlist.map((pod) => (
-                                <Dropdown.Item onClick={() => setSelectedPod(pod)}>
-                                    {pod.name}
-                                </Dropdown.Item>
-                            ))
-                        )}
-                    </DropdownButton>
-                    <ListGroup>
-                        {selectedPod && (
-                            selectedPod.userList.map((user) => (
-                                <ListGroup.Item>
-                                    { user.username }
-                                </ListGroup.Item>
-                            ))
-                        )}
-                    </ListGroup>
+                    <div className="titleheading">
+                        <h1>Pod List</h1>
+                    </div>
+                    <div id="dropdown-pod">
+                        <DropdownButton bsPrefix="custom-button" id="dropdown-pod-select" title="Choose a Pod">
+                            {podlist && (
+                                podlist.map((pod) => (
+                                    <Dropdown.Item onClick={() => setSelectedPod(pod)}>
+                                        {pod.name}
+                                    </Dropdown.Item>
+                                ))
+                            )}
+                        </DropdownButton>
+                    </div>
+                    <div id="list-pid">
+                        <ListGroup>
+                            {selectedPod && (
+                                selectedPod.userList.map((user) => (
+                                    <ListGroup.Item>
+                                        { user.username }
+                                    </ListGroup.Item>
+                                ))
+                            )}
+                        </ListGroup>
+                    </div>
                 </Container>
             </div>
         </div>

@@ -123,6 +123,9 @@ const LocationMap = () => {
             <div className="splitcontent">
                 <Sidebar />
                 <Container className="container-locationmap">
+                    <div className="titleheading">
+                        <h1>User Locations</h1>
+                    </div>
                     <XYPlot width={600} height={600}>
                         <XAxis />
                         <YAxis />
@@ -185,11 +188,13 @@ const LocationMap = () => {
                         )}
                     </XYPlot>
                     <Button
+                        bsPrefix="custom-button"
                         onClick={toggleObjects}
                     >
                         Toggle Store Layout
                     </Button>
                     <Button
+                        bsPrefix="custom-button"
                         onClick={toggleHeatmap}
                     >
                         Toggle Heatmap
