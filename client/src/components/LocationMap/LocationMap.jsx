@@ -11,7 +11,7 @@ import {
     LineSeries,
 } from 'react-vis';
 // import React, { useEffect, useState } from 'react';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import './LocationMap.css';
@@ -23,6 +23,8 @@ const LocationMap = () => {
     const [showHeatmap, setShowHeatmap] = useState(false);
     const [showPaths, setShowPaths] = useState(false);
     const [showGrid, setShowGrid] = useState(false);
+
+    const [paths, setPaths] = useState([]);
 
     const toggleObjects = () => {
         setShowObjects(!showObjects);
@@ -42,6 +44,13 @@ const LocationMap = () => {
 
     const togglePaths = () => {
         setShowPaths(!showPaths);
+    };
+
+    const getPathData = async () => {
+        const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/map/paths`, {
+            method: 'GET',
+        });
+        setPaths(await response.json());
     };
 
     const locations = [
@@ -304,15 +313,6 @@ const LocationMap = () => {
         ],
     ];
 
-    const paths = [
-        [
-            { x: 10, y: 0 },
-            { x: 10, y: 51 },
-            { x: 80, y: 51 },
-            { x: 80, y: 32 },
-        ],
-    ];
-
     // const [locations, setLocations] = useState([]);
 
     // const getLocations = async () => {
@@ -322,6 +322,10 @@ const LocationMap = () => {
     //     const locations = await response.json();
     //     return locations;
     // };
+
+    useEffect(() => {
+        getPathData();
+    });
 
     // useEffect(() => {
     //     const formattedLocations = getLocations().then((locationdata) => {
@@ -454,8 +458,8 @@ const LocationMap = () => {
                             paths.map((obj) => (
                                 <LineSeries
                                     animation
-                                    data={obj}
-                                    color="black"
+                                    data={obj.data}
+                                    color={obj.color}
                                     style={{
                                         strokeWidth: 5,
                                         strokeOpacity: 1,
