@@ -42,7 +42,7 @@ const BraceletList = () => {
                                         <td>{bracelet.id}</td>
                                         <td>{bracelet.macAddress}</td>
                                         <td>{Object.prototype.hasOwnProperty.call(bracelet.usage.slice(-1)[0], 'timeEnd') ? 'Not in use' : 'In use'}</td>
-                                        <td>{bracelet.usage.slice(-1)[0].user}</td>
+                                        <td>{bracelet.usage.length > 0 ? bracelet.usage.slice(-1)[0].user : 'None'}</td>
                                     </tr>
                                 ))}
                             </tbody>

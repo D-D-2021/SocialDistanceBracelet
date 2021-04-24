@@ -18,6 +18,17 @@ body {
   flex-direction: row;
 }
 
+.button-columns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.button-list {
+  display: flex;
+  flex-direction: column;
+}
+
 .titleheading {
   display: flex;
   color: #FAF9F9;

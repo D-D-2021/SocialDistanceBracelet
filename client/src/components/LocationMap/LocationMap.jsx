@@ -766,59 +766,65 @@ const LocationMap = () => {
                             />
                         )}
                     </XYPlot>
-                    <Button
-                        bsPrefix="custom-button"
-                        onClick={toggleObjects}
-                    >
-                        Toggle Store Layout
-                    </Button>
-                    <Button
-                        bsPrefix="custom-button"
-                        onClick={toggleHeatmap}
-                    >
-                        Toggle Heatmap
-                    </Button>
-                    <Button
-                        bsPrefix="custom-button"
-                        onClick={toggleGrid}
-                    >
-                        Toggle Gridlines
-                    </Button>
-                    <Button
-                        bsPrefix="custom-button"
-                        onClick={toggleEssential}
-                    >
-                        Highlight Essential Goods
-                    </Button>
-                    <Button
-                        bsPrefix="custom-button"
-                        onClick={togglePaths}
-                    >
-                        Toggle Paths
-                    </Button>
-                    <Button
-                        bsPrefix="custom-button"
-                        onClick={toggleBeacons}
-                    >
-                        Toggle Beacons
-                    </Button>
-                    <Button
-                        bsPrefix="custom-button"
-                        onClick={toggleContacts}
-                    >
-                        Show Contact Locations
-                    </Button>
-                    <Button
-                        bsPrefix="custom-button"
-                        onClick={toggleShowDemo}
-                    >
-                        Show Demo
-                    </Button>
-                    <RangeSlider
-                        value={demoValue}
-                        max={demoLocations.length - 1}
-                        onChange={(changeEvent) => setDemoValue(changeEvent.target.value)}
-                    />
+                    <div className="button-columns">
+                        <div className="button-list">
+                            <Button
+                                bsPrefix="custom-button"
+                                onClick={toggleObjects}
+                            >
+                                Toggle Store Layout
+                            </Button>
+                            <Button
+                                bsPrefix="custom-button"
+                                onClick={toggleGrid}
+                            >
+                                Toggle Gridlines
+                            </Button>
+                            <Button
+                                bsPrefix="custom-button"
+                                onClick={toggleBeacons}
+                            >
+                                Toggle Beacons
+                            </Button>
+                            <Button
+                                bsPrefix="custom-button"
+                                onClick={toggleHeatmap}
+                            >
+                                Toggle Heatmap
+                            </Button>
+                        </div>
+                        <div className="button-list">
+                            <Button
+                                bsPrefix="custom-button"
+                                onClick={toggleEssential}
+                            >
+                                Highlight Essential Goods
+                            </Button>
+                            <Button
+                                bsPrefix="custom-button"
+                                onClick={togglePaths}
+                            >
+                                Toggle Paths
+                            </Button>
+                            <Button
+                                bsPrefix="custom-button"
+                                onClick={toggleContacts}
+                            >
+                                Show Contact Locations
+                            </Button>
+                            <Button
+                                bsPrefix="custom-button"
+                                onClick={toggleShowDemo}
+                            >
+                                Show Demo
+                            </Button>
+                            <RangeSlider
+                                value={demoValue}
+                                max={demoLocations.length - 1}
+                                onChange={(changeEvent) => setDemoValue(changeEvent.target.value)}
+                            />
+                        </div>
+                    </div>
                 </Container>
             </div>
         </div>
