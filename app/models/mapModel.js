@@ -26,7 +26,19 @@ const InteractionSchema = new Schema({
     },
 });
 
+const HeatmapSchema = new Schema({
+    x: {
+        type: Number,
+        required: true,
+    },
+    y: {
+        type: Number,
+        required: true,
+    },
+});
+
 module.exports = {
     Path: mongoose.model('Path', PathSchema),
     Interaction: mongoose.model('Interaction', InteractionSchema),
+    Heatmap: mongoose.model('Heatmap', HeatmapSchema),
 };

@@ -10,6 +10,7 @@ import PodList from './components/PodList/PodList';
 import Home from './components/Home/Home';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css';
 
 function App() {
     return (

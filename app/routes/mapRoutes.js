@@ -8,4 +8,6 @@ router.get('/paths', mapController.getPaths);
 
 router.get('/interactions', mapController.getInteractions);
 
+router.get('/heatmap', mapController.getHeatmap);
+
 module.exports = router;
